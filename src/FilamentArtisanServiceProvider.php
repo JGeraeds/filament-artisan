@@ -37,7 +37,7 @@ class FilamentArtisanServiceProvider extends PackageServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'filament-artisan');
         //Publish Views
         $this->publishes([
-            __DIR__.'/../resources/views/filament' => resource_path('views/vendor/filament-artisan'),
+            __DIR__.'/../resources/views' => resource_path('views/vendor/filament-artisan'),
         ], 'filament-artisan-views');
 
         //Register Langs
