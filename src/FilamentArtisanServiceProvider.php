@@ -2,6 +2,8 @@
 
 namespace TomatoPHP\FilamentArtisan;
 
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -27,9 +29,9 @@ class FilamentArtisanServiceProvider extends PackageServiceProvider
         ], 'filament-artisan-config');
 
         //Publish the styling
-        $this->publishes([
-            __DIR__ . '/../resources/css' => resource_path('css/filament-artisan'),
-        ], 'filament-artisan-styles');
+        FilamentAsset::register([
+            Css::make('filament-artisan', __DIR__ . '/../resources/css/filament-artisan.css'),
+        ]);
 
         //Register views
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'filament-artisan');
