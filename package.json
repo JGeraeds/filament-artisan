@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "build-styles": "npx @tailwindcss/cli -i ./resources/css/theme.css -o ./resources/css/filament-artisan.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "tailwindcss": "^4.1.18"
+  }
+}
