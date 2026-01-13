@@ -1,5 +1,5 @@
 {
-    "name": "tomatophp/filament-artisan",
+    "name": "jgeraeds/filament-artisan",
     "type": "library",
     "description": "Simple but yet powerful library for running some artisan commands for FilamentPHP",
     "keywords": [
