@@ -20,7 +20,7 @@ Simple but yet powerful library for running some [artisan](https://laravel.com/d
 composer require tomatophp/filament-artisan
 ```
 
-finally reigster the plugin on `/app/Providers/Filament/AdminPanelProvider.php`
+finally register the plugin on `/app/Providers/Filament/AdminPanelProvider.php`
 
 ```php
 ->plugin(\TomatoPHP\FilamentArtisan\FilamentArtisanPlugin::make())
