@@ -30,7 +30,7 @@ class FilamentArtisanServiceProvider extends PackageServiceProvider
 
         //Publish the styling with assets
         FilamentAsset::register([
-            Css::make('filament-artisan', __DIR__ . '/../resources/css/filament-artisan.css'),
+            Css::make('filament-artisan', __DIR__ . '/../resources/css/filament-artisan.css')->loadedOnRequest(),
         ], package: 'filament-artisan');
 
         //Register views
