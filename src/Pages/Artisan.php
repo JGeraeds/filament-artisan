@@ -176,6 +176,8 @@ class Artisan extends Page implements HasTable, HasActions
         return $table
             ->query(Command::query())
             ->paginated(false)
+            ->deferFilters(config('filament-artisan.defer.filters', false))
+            ->deferColumnManager(config('filament-artisan.defer.columns', false))
             ->content(fn() => view('filament-artisan::table.content'))
             ->defaultSort('name')
             ->filters([

@@ -231,5 +231,15 @@ return [
         'show-only-commands-showing' => true,
         'group' => 'Settings',
         'icon' => 'heroicon-o-command-line',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Manage the ability of the filters and columns to be defer
+    |--------------------------------------------------------------------------
+    */
+    'defer' => [
+        'filters' => false,
+        'columns' => false,
     ]
 ];
