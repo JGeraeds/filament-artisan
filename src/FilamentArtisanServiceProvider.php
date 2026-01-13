@@ -26,6 +26,11 @@ class FilamentArtisanServiceProvider extends PackageServiceProvider
             __DIR__.'/../config/filament-artisan.php' => config_path('filament-artisan.php'),
         ], 'filament-artisan-config');
 
+        //Publish the styling
+        $this->publishes([
+            __DIR__ . '/../resources/css' => resource_path('css/filament-artisan'),
+        ], 'filament-artisan-styles');
+
         //Register views
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'filament-artisan');
         //Publish Views
