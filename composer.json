@@ -1,5 +1,5 @@
 {
-    "name": "jgeraeds/filament-artisan",
+    "name": "tomatophp/filament-artisan",
     "type": "library",
     "description": "Simple but yet powerful library for running some artisan commands for FilamentPHP",
     "keywords": [
@@ -40,5 +40,7 @@
         "calebporzio/sushi": "*",
         "tomatophp/filament-developer-gate": "^1.0",
         "tomatophp/console-helpers": "^1.1"
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
