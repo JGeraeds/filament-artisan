@@ -70,7 +70,7 @@ class Artisan extends Page implements HasTable, HasActions
             Action::make('output')
                 ->icon('heroicon-s-computer-desktop')
                 ->color('warning')
-                ->form(fn(array $arguments = []) => [
+                ->schema(fn(array $arguments = []) => [
                     Textarea::make('output')
                         ->autosize()
                         ->default($arguments ? $arguments['output'] : session()->get('terminal_output'))
@@ -102,14 +102,14 @@ class Artisan extends Page implements HasTable, HasActions
         return $actions;
     }
 
-    public function runAction(?Command $item = null)
+    public function runAction(?Command $item = null): Action
     {
         return Action::make('runAction')
             ->label(trans('filament-artisan::messages.modal.label'))
             ->requiresConfirmation()
             ->view('filament-artisan::actions.run')
             ->viewData(['item' => $item])
-            ->form(function (array $arguments = []) {
+            ->schema(function (array $arguments = []) {
                 $form = [];
                 $commandArguments = $arguments['item']['arguments'] != 'null' ? json_decode($arguments['item']['arguments']) : [];
                 $commandOptions = $arguments['item']['options'] != 'null' ? json_decode($arguments['item']['options']) : [];
@@ -140,7 +140,6 @@ class Artisan extends Page implements HasTable, HasActions
                             ->required($formItem->required);
                     }
                 }
-
                 return $form;
             })
             ->action(function (array $arguments = [], array $data = []) {
