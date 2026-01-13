@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+
+@source '../../../../vendor/tomatophp/filament-artisan/resources/views';
