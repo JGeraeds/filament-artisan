@@ -14,6 +14,15 @@ Simple but yet powerful library for running some [artisan](https://laravel.com/d
 ![Commands Form](https://raw.githubusercontent.com/tomatophp/filament-artisan/master/arts/commands-form.png)
 ![Commands Output](https://raw.githubusercontent.com/tomatophp/filament-artisan/master/arts/command-output.png)
 
+## Development
+When modifying the styling / views from within this package you're required to build the css
+this due to the new limited Tailwind V4 which no longer has a postcss or tailwind.config in the laravel projects.
+When these views have been modified with new classes you can run the project's command to build the css file again
+```
+npm run build-styles
+```
+This command will use the contents of resources/css/theme.css and builds the resources/css/filament-artisan.css which is the file that will be used by the filament instances.
+
 ## Installation
 
 ```bash
