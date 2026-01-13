@@ -28,10 +28,10 @@ class FilamentArtisanServiceProvider extends PackageServiceProvider
             __DIR__.'/../config/filament-artisan.php' => config_path('filament-artisan.php'),
         ], 'filament-artisan-config');
 
-        //Publish the styling
+        //Publish the styling with assets
         FilamentAsset::register([
             Css::make('filament-artisan', __DIR__ . '/../resources/css/filament-artisan.css'),
-        ]);
+        ], package: 'filament-artisan');
 
         //Register views
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'filament-artisan');
