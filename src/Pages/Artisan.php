@@ -2,6 +2,7 @@
 
 namespace TomatoPHP\FilamentArtisan\Pages;
 
+use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
@@ -27,9 +28,9 @@ class Artisan extends Page implements HasTable, HasActions
     use InteractsWithTable;
     use InteractsWithActions;
 
-    protected static ?string $navigationIcon = 'heroicon-o-command-line';
+    protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-command-line';
 
-    protected static string $view = 'filament-artisan::index';
+    protected string $view = 'filament-artisan::index';
 
     public static function getRouteMiddleware(Panel $panel): string|array
     {

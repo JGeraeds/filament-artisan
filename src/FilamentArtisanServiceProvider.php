@@ -2,15 +2,31 @@
 
 namespace TomatoPHP\FilamentArtisan;
 
-use Illuminate\Support\ServiceProvider;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-
-class FilamentArtisanServiceProvider extends ServiceProvider
+class FilamentArtisanServiceProvider extends PackageServiceProvider
 {
+    public static string $name = 'filament-artisan';
+
+    public function configurePackage(Package $package): void
+    {
+        $package->name(static::$name)
+            ->hasConfigFile()
+            ->hasViews()
+            ->hasTranslations();
+    }
+
+    public function packageBooted(): void
+    {
+        $this->mergeConfigFrom(__DIR__.'/../config/filament-artisan.php', 'filament-artisan');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'filament-artisan');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'filament-artisan');
+    }
+
     public function register(): void
     {
         //Register Config file
-        $this->mergeConfigFrom(__DIR__.'/../config/filament-artisan.php', 'filament-artisan');
 
         //Publish Config
         $this->publishes([
@@ -18,7 +34,6 @@ class FilamentArtisanServiceProvider extends ServiceProvider
         ], 'filament-artisan-config');
 
         //Register views
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'filament-artisan');
 
         //Publish Views
         $this->publishes([
@@ -26,16 +41,10 @@ class FilamentArtisanServiceProvider extends ServiceProvider
         ], 'filament-artisan-views');
 
         //Register Langs
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'filament-artisan');
 
         //Publish Lang
         $this->publishes([
            __DIR__.'/../resources/lang' => base_path('lang/vendor/filament-artisan'),
         ], 'filament-artisan-lang');
-    }
-
-    public function boot(): void
-    {
-        //you boot methods here
     }
 }
